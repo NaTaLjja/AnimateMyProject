@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@id/start"
+        motion:duration="2000"
+>
+
+        <OnClick
+            motion:targetId="@id/button"
+            motion:clickAction="transitionToEnd"/>
+
+       <KeyFrameSet>
+           <KeyAttribute
+               motion:motionTarget="@+id/photo"
+               motion:framePosition="25"
+               android:alpha="0.5" />
+           <KeyAttribute
+               motion:motionTarget="@+id/photo"
+               motion:framePosition="75"
+               android:scaleX="0.5"
+               android:scaleY="0.5" />
+       </KeyFrameSet>
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@+id/background"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:alpha="0.0"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="parent" />
+
+        <Constraint
+            android:id="@+id/photo"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintStart_toStartOf="@id/lineStart"
+            motion:layout_constraintEnd_toEndOf="@id/lineEnd" />
+
+        <Constraint
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintTop_toBottomOf="@id/photo"
+            motion:layout_constraintStart_toStartOf="@+id/lineStart"
+            motion:layout_constraintEnd_toEndOf="@+id/lineEnd" >
+            <CustomAttribute
+                motion:attributeName="textColor"
+                motion:customColorValue="#E91E63"/>
+            <CustomAttribute
+                motion:attributeName="textSize"
+                motion:customDimension="9sp"/>
+        </Constraint>
+
+        <Constraint
+            android:id="@+id/position"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintTop_toBottomOf="@id/name"
+            motion:layout_constraintStart_toStartOf="@+id/lineStart"
+            motion:layout_constraintEnd_toEndOf="@+id/lineEnd">
+            <CustomAttribute
+                motion:attributeName="textColor"
+                motion:customColorValue="#E91E63"/>
+            <CustomAttribute
+                motion:attributeName="textSize"
+                motion:customDimension="12sp"/>
+        </Constraint>
+
+        <Constraint
+            android:id="@+id/biography"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            motion:layout_constraintEnd_toEndOf="@id/lineEnd"
+            motion:layout_constraintStart_toStartOf="@id/lineStart"
+            motion:layout_constraintTop_toBottomOf="@id/position" >
+            <CustomAttribute
+                motion:attributeName="textColor"
+                motion:customColorValue="#1A38E2"/>
+            <CustomAttribute
+                motion:attributeName="textSize"
+                motion:customDimension="6sp"/>
+        </Constraint>
+
+        <Constraint
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0.0"
+            motion:layout_constraintStart_toStartOf="@id/lineStart"
+            motion:layout_constraintTop_toBottomOf = "@id/biography"
+            />
+
+        <Constraint
+            android:id="@+id/email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0.0"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toStartOf="@id/phone"/>
+
+        <Constraint
+            android:id="@+id/phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0.0"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toEndOf="@id/lineEnd"
+            />
+    </ConstraintSet>
+</MotionScene>

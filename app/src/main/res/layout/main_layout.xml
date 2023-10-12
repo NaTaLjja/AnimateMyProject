@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="8dp">
+    android:layout_margin="8dp"
+    android:animateLayoutChanges="true"
+    app:layoutDescription="@xml/main_layout_scene"
+    tools:context=".MainActivity">
 
     <ImageView
         android:id="@+id/background"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
+        android:alpha="1"
         android:src="@drawable/image2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -36,18 +41,17 @@
         android:src="@drawable/image1"
         app:layout_constraintBottom_toBottomOf="@id/background"
         app:layout_constraintStart_toStartOf="@id/lineStart"
-        app:layout_constraintTop_toBottomOf="@id/background"
-
-        />
+        app:layout_constraintTop_toBottomOf="@id/background"/>
 
     <TextView
         android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:background="@color/white"
         android:text="Українська асоціація"
         android:textColor="@color/black"
-        android:textSize="14sp"
-        android:layout_marginStart="8dp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@id/position"
         app:layout_constraintStart_toEndOf="@id/photo"
         app:layout_constraintTop_toBottomOf="@+id/background"
@@ -57,51 +61,51 @@
         android:id="@+id/position"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:text="Добра справа"
         android:textColor="@color/black"
-        android:textSize="14sp"
-        android:layout_marginStart="8dp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@id/photo"
         app:layout_constraintStart_toEndOf="@id/photo"
         app:layout_constraintTop_toBottomOf="@id/name"
-        app:layout_constraintVertical_chainStyle="packed"
-        />
+        app:layout_constraintVertical_chainStyle="packed" />
+
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/section_bottom_barrier"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:barrierDirection="bottom"
-        app:constraint_referenced_ids="photo,name,position"/>
+        app:constraint_referenced_ids="photo,name,position" />
 
 
     <TextView
         android:id="@+id/biography"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
         android:gravity="center_horizontal"
         android:padding="6dp"
-        android:text="@string/_3_2022_embassy_of_ukraine_in_montenegro_zapad_banka"
+        android:text="@string/text"
         android:textColor="@color/black"
         android:textSize="12sp"
         android:textStyle="italic"
-        android:layout_marginTop="32dp"
-        app:layout_constraintTop_toBottomOf="@id/section_bottom_barrier"
         app:layout_constraintEnd_toEndOf="@id/lineEnd"
         app:layout_constraintStart_toStartOf="@id/lineStart"
-        />
+        app:layout_constraintTop_toBottomOf="@id/section_bottom_barrier" />
 
 
     <Button
         android:id="@+id/email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Email"
-        android:background="#243AB3"
-        android:textColor="#F6E01C"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintEnd_toStartOf="@id/phone"
         android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:alpha="1"
+        android:background="#243AB3"
+        android:text="Email"
+        android:textColor="#F6E01C"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/phone"
 
         />
 
@@ -109,14 +113,23 @@
         android:id="@+id/phone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Phone"
-        android:background="#F6E01C"
-        android:textColor="#243AB3"
         android:layout_marginBottom="16dp"
-        app:layout_constraintEnd_toEndOf="@id/lineEnd"
+        android:alpha="1"
+        android:background="#F6E01C"
+        android:text="Phone"
+        android:textColor="#243AB3"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/lineEnd" />
 
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="#69DFD4"
+        android:text="Animated"
+        android:alpha="1"
+        app:layout_constraintTop_toBottomOf="@id/biography"
+        app:layout_constraintStart_toStartOf="@id/lineStart"/>
 
-/>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.motion.widget.MotionLayout>

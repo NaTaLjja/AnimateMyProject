@@ -87,9 +87,7 @@
             <CustomAttribute
                 motion:attributeName="textColor"
                 motion:customColorValue="#1A38E2"/>
-            <CustomAttribute
-                motion:attributeName="textSize"
-                motion:customDimension="6sp"/>
+
         </Constraint>
 
         <Constraint

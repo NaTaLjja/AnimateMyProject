@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="8dp">
+
+    <ImageView
+        android:id="@+id/background"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:src="@drawable/image2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/lineStart"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="16dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/lineEnd"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="16dp" />
+
+    <ImageView
+        android:id="@+id/photo"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:src="@drawable/image1"
+        app:layout_constraintBottom_toBottomOf="@id/background"
+        app:layout_constraintStart_toStartOf="@id/lineStart"
+        app:layout_constraintTop_toBottomOf="@id/background"
+
+        />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Українська асоціація"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toTopOf="@id/position"
+        app:layout_constraintStart_toEndOf="@id/photo"
+        app:layout_constraintTop_toBottomOf="@+id/background"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/position"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Добра справа"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="@id/photo"
+        app:layout_constraintStart_toEndOf="@id/photo"
+        app:layout_constraintTop_toBottomOf="@id/name"
+        app:layout_constraintVertical_chainStyle="packed"
+        />
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/section_bottom_barrier"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="photo,name,position"/>
+
+
+    <TextView
+        android:id="@+id/biography"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:padding="6dp"
+        android:text="@string/_3_2022_embassy_of_ukraine_in_montenegro_zapad_banka"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        android:textStyle="italic"
+        android:layout_marginTop="32dp"
+        app:layout_constraintTop_toBottomOf="@id/section_bottom_barrier"
+        app:layout_constraintEnd_toEndOf="@id/lineEnd"
+        app:layout_constraintStart_toStartOf="@id/lineStart"
+        />
+
+
+    <Button
+        android:id="@+id/email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email"
+        android:background="#243AB3"
+        android:textColor="#F6E01C"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintEnd_toStartOf="@id/phone"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        />
+
+    <Button
+        android:id="@+id/phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Phone"
+        android:background="#F6E01C"
+        android:textColor="#243AB3"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintEnd_toEndOf="@id/lineEnd"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+
+/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
